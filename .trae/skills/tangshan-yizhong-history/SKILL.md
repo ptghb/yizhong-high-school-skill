@@ -28,7 +28,15 @@ Or:
 make -C .trae/skills/tangshan-yizhong-history install
 ```
 
-This command creates a local virtual environment, installs dependencies, extracts text from the PDF, chunks it, and builds a local SQLite index.
+This command creates a local virtual environment, installs dependencies, and reuses the bundled SQLite index by default.
+
+If the bundled index is missing, it falls back to building from the PDF.
+
+To force a rebuild from PDF:
+
+```bash
+bash .trae/skills/tangshan-yizhong-history/install.sh --rebuild
+```
 
 ## Retrieval Command
 

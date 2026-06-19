@@ -33,12 +33,14 @@ bash .trae/skills/tangshan-yizhong-history/install.sh
 make -C .trae/skills/tangshan-yizhong-history install
 ```
 
-默认读取项目根目录下的 `唐山市第一中学校史.pdf`。
+默认直接使用当前目录下已提交的 `history_index.db`。
+
+只有在本地索引不存在，或者你想强制重建索引时，才需要 PDF。
 
 如果 PDF 路径不同：
 
 ```bash
-bash .trae/skills/tangshan-yizhong-history/install.sh "/你的/PDF/绝对路径.pdf"
+bash .trae/skills/tangshan-yizhong-history/install.sh --rebuild "/你的/PDF/绝对路径.pdf"
 ```
 
 ## 用法
@@ -104,4 +106,5 @@ make -C .trae/skills/tangshan-yizhong-history export-json \
 - `ask.py` 会根据问题类型输出不同结构，如建校、沿革、校址、人物、荣誉。
 - `ask.py` 仍然属于抽取式归纳，不是自由生成。
 - `export_json.py` 会输出 `question`、`question_type`、`summary`、`key_points`、`passages` 等字段。
+- `install.sh` 默认复用仓库里的 `history_index.db`，不会重复解析 PDF。
 - 如果 PDF 某些页面 OCR 噪声较重，建议结合 `query_index.py` 查看原始片段。
